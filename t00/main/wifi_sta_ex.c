@@ -23,7 +23,9 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
     switch(event->event_id) {
 		
     case SYSTEM_EVENT_STA_START:
-        esp_wifi_connect();
+        if(esp_wifi_connect() != ESP_OK) {
+        	
+        }
         break;
     
 	case SYSTEM_EVENT_STA_GOT_IP:
